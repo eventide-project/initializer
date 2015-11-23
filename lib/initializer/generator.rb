@@ -36,7 +36,7 @@ module Initializer
 
     def generate_definitions
       define_attributes
-      InitializerDefinition.define_initializer(target_class, parameters)
+      Define.(target_class, parameters)
     end
 
     def define_attributes
@@ -45,7 +45,7 @@ module Initializer
       end
     end
 
-    class InitializerDefinition
+    class Define
       attr_reader :target_class
       attr_reader :parameters
 
@@ -54,15 +54,15 @@ module Initializer
         @parameters = parameters
       end
 
-      def self.define_initializer(target_class, parameters)
+      def self.call(target_class, parameters)
         parameters = parameters.map do |parameter|
           parameter.extend InitializerParameter
         end
         instance = new target_class, parameters
-        instance.define_initializer
+        instance.()
       end
 
-      def define_initializer
+      def call
         body = build_initializer_definition
         target_class.class_eval body
       end
