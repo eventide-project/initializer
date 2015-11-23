@@ -81,7 +81,6 @@ module Initializer
       end
 
       def build_initializer_definition
-        body =
 <<CTOR
         def initialize(#{parameter_list})
           #{variable_assignment_statements}
