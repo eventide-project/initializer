@@ -19,4 +19,12 @@ describe 'Attribute' do
 
     assert(target_class.writer?(attr_name))
   end
+
+  specify 'Accessor' do
+    visibility = :accessor
+
+    attribute = Initializer::Attribute.define(target_class, attr_name, visibility)
+
+    assert(target_class.accessor?(attr_name))
+  end
 end
