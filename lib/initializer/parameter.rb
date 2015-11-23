@@ -21,10 +21,12 @@ module Initializer
       end
     end
 
-    def self.build(name, visibility, default=NO_DEFAULT_VALUE)
+    def self.build(name, visibility, default=nil)
       instance = new(name, visibility)
 
-      unless default.eql?(NO_DEFAULT_VALUE)
+      default ||= :no_default_value
+
+      unless default == :no_default_value
         default = build_default_value(default)
         instance.default_value(default)
       end
