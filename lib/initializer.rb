@@ -1,6 +1,5 @@
 require 'attribute'
 
-require 'initializer/statement'
 require 'initializer/parameter'
 require 'initializer/generator'
 require 'initializer/visibility'

@@ -21,19 +21,6 @@ module Initializer
       end
     end
 
-    def self.build_default_value(value)
-      result = value
-
-      unless result.respond_to?(:code_fragment)
-        if [String, Symbol].include?(result.class)
-          result = StringDefaultValue.new(result.to_s)
-        else
-          result = Statement.new(result)
-        end
-      end
-      result
-    end
-
     def self.build(name, visibility, default=NO_DEFAULT_VALUE)
       instance = new(name, visibility)
 
@@ -43,6 +30,19 @@ module Initializer
       end
 
       instance
+    end
+
+    def self.build_default_value(default_value)
+      result = default_value
+
+      unless default_value.respond_to?(:code_fragment)
+        if [String, Symbol].include?(result.class)
+          result = StringDefaultValue.new(result.to_s)
+        else
+          result = Statement.new(result)
+        end
+      end
+      result
     end
 
     def visibility?(visibility)
@@ -72,6 +72,14 @@ module Initializer
 
       def code_fragment
         "'#{@value}'"
+      end
+    end
+
+    class Statement
+      attr_reader :code_fragment
+
+      def initialize(code_fragment)
+        @code_fragment = code_fragment
       end
     end
   end
