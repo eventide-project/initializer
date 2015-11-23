@@ -34,4 +34,4 @@ Document the attribute visibility syntax and the default value syntax
 
 ## License
 
-Initializer is released under the [MIT License](https://github.com/obsidian-btc/initializer/blob/master/MIT-license.txt).
+Initializer is released under the [MIT License](https://github.com/obsidian-btc/initializer/blob/master/MIT-License.txt).
