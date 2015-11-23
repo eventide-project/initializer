@@ -1,12 +1,10 @@
 module Initializer
   module Controls
     module TargetClass
-      class Example
-        extend Initializer::Controls::Proof
-      end
-
       def self.example
-        Example
+        Class.new do
+          extend Initializer::Controls::Proof
+        end
       end
     end
   end
