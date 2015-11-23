@@ -63,8 +63,7 @@ module Initializer
       end
 
       def call
-        body = build_initializer_definition
-        target_class.class_eval body
+        target_class.class_eval(initializer_definition)
       end
 
       def variable_assignment_statements
@@ -80,7 +79,7 @@ module Initializer
         parameter_names
       end
 
-      def build_initializer_definition
+      def initializer_definition
         "
           def initialize(#{parameter_list})
             #{variable_assignment_statements}
