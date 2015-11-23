@@ -1,2 +1,3 @@
 require 'initializer/controls/proof'
-require 'initializer/controls/target_class'
+require 'initializer/controls/attributes'
+require 'initializer/controls/initialized'
