@@ -41,7 +41,7 @@ module Initializer
 
     def define_attributes
       parameters.each do |p|
-        Attribute.define target_class, p.name, p.visibility
+        ::Attribute::Define.(target_class, p.name, p.visibility)
       end
     end
 
@@ -104,43 +104,6 @@ CTOR
   module InitializerOptions
     def visibility
       self[:default]
-    end
-  end
-
-  class Attribute
-    attr_reader :target_class
-    attr_reader :name
-    attr_reader :visibility
-
-    def initialize(target_class, name, visibility)
-      @target_class = target_class
-      @name = name
-      @visibility = visibility
-    end
-
-    def self.define(target_class, name, visibility)
-      # instance = new target_class, name, visibility
-      # instance.define
-      ::Attribute::Define.(target_class, name, visibility)
-    end
-
-    def define
-      define_getter if [:reader, :accessor].include? visibility
-      define_setter if [:writer, :accessor].include? visibility
-    end
-
-    def define_getter
-      name = self.name
-      target_class.send :define_method, name do
-        instance_variable_get("@#{name}")
-      end
-    end
-
-    def define_setter
-      name = self.name
-      target_class.send :define_method, "#{name}=" do |value|
-        instance_variable_set("@#{name}", value)
-      end
     end
   end
 
