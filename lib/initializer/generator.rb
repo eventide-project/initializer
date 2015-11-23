@@ -13,7 +13,7 @@ module Initializer
     def self.build(target_class, parameters)
       parameters, options = separate_parameters(parameters)
       options.extend InitializerOptions
-      parameters = NormalizeParameters.normalize(parameters, options.visibility)
+      parameters = NormalizeParameters.(parameters, options.visibility)
       instance = new target_class, parameters
       instance
     end
@@ -116,19 +116,19 @@ CTOR
       @default_visibility = default_visibility
     end
 
-    def self.normalize(parameters, default_visibility)
+    def self.call(parameters, default_visibility)
       instance = new parameters, default_visibility
-      instance.normalize
-      instance.parameters
+      instance.()
     end
 
-    def normalize
+    def call
       @parameters = parameters.map do |p|
-        normalize_parameter p
+        normalize p
       end
+      parameters
     end
 
-    def normalize_parameter(parameter)
+    def normalize(parameter)
       if parameter.is_a? Symbol
         return Parameter.new parameter, default_visibility
       else
