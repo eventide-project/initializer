@@ -12,7 +12,6 @@ module Initializer
 
     def self.build(target_class, parameters)
       parameters, options = separate_parameters(parameters)
-      options.extend InitializerOptions
       parameters = NormalizeParameters.(parameters, options.visibility)
       instance = new target_class, parameters
       instance
@@ -31,6 +30,7 @@ module Initializer
     def self.separate_parameters(parameters)
       options = { :visibility => DEFAULT_VISIBILITY }
       options = parameters.pop if options?(parameters)
+      options.extend InitializerOptions
 
       return parameters, options
     end
