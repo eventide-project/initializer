@@ -15,7 +15,7 @@ module Initializer
         class Example
           include Initializer::Controls::Proof
 
-          initializer :some_attr, rw(:some_other_attr), :another_attr, :default => :writer
+          initializer :some_attr, rw(:some_other_attr), :another_attr, :visibility => :writer
         end
 
         def self.example
