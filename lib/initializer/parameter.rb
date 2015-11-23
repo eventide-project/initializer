@@ -13,10 +13,12 @@ module Initializer
       @default = value
     end
 
-    def argument_definition
-      return "#{@name} = #{default.code_fragment}" if @default
-
-      return @name
+    def definition
+      if default
+        return "#{name}=#{default.code_fragment}"
+      else
+        return name
+      end
     end
 
     def self.build_default_value(value)

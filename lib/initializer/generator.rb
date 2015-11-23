@@ -74,8 +74,8 @@ module Initializer
         variable_assignments
       end
 
-      def parameter_definitions
-        parameter_names = parameters.map{ |item| item.argument_definition }.to_a
+      def parameter_list
+        parameter_names = parameters.map{ |p| p.definition }.to_a
         parameter_names = parameter_names.join(", ")
         parameter_names
       end
@@ -83,7 +83,7 @@ module Initializer
       def build_initializer_definition
         body =
 <<CTOR
-        def initialize(#{parameter_definitions})
+        def initialize(#{parameter_list})
           #{variable_assignment_statements}
         end
 CTOR
