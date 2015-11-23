@@ -26,4 +26,6 @@ doc/
 .ruby-version
 Gemfile.lock
 
+gems/
+
 proofs/

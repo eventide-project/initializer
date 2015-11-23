@@ -8,4 +8,6 @@ require_relative '../init.rb'
 
 require 'runner'
 
+require 'initializer/controls'
+
 Telemetry::Logger::AdHoc.activate
