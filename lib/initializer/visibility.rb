@@ -20,7 +20,7 @@ module Initializer
     end
 
     def lazy(statement)
-      Statement.new(statement)
+      Parameter::Statement.new(statement)
     end
   end
 end

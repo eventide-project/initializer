@@ -5,5 +5,7 @@ describe "Initializer Generated with Default Values" do
 
   specify "Attributes values are set by the initializer" do
     assert(example.initialized?(check_no_attr: true))
+    assert(example.lazy_attr == 2)
+    assert(example.symbol_attr == :some_symbol.to_s)
   end
 end
