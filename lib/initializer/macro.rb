@@ -119,8 +119,9 @@ CTOR
     end
 
     def self.define(target_class, name, visibility)
-      instance = new target_class, name, visibility
-      instance.define
+      # instance = new target_class, name, visibility
+      # instance.define
+      ::Attribute::Define.(target_class, name, visibility)
     end
 
     def define
