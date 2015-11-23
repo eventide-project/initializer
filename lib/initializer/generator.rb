@@ -1,5 +1,5 @@
 module Initializer
-  class Macro
+  class Generator
     DEFAULT_VISIBILITY = :reader
 
     attr_reader :target_class
