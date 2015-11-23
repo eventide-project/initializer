@@ -99,40 +99,40 @@ CTOR
         end
       end
     end
-  end
 
-  module InitializerOptions
-    def visibility
-      self[:visibility]
-    end
-  end
+    class NormalizeParameters
+      attr_reader :parameters
+      attr_reader :default_visibility
 
-  class NormalizeParameters
-    attr_reader :parameters
-    attr_reader :default_visibility
-
-    def initialize(parameters, default_visibility)
-      @parameters = parameters
-      @default_visibility = default_visibility
-    end
-
-    def self.call(parameters, default_visibility)
-      instance = new parameters, default_visibility
-      instance.()
-    end
-
-    def call
-      @parameters = parameters.map do |p|
-        normalize p
+      def initialize(parameters, default_visibility)
+        @parameters = parameters
+        @default_visibility = default_visibility
       end
-      parameters
+
+      def self.call(parameters, default_visibility)
+        instance = new parameters, default_visibility
+        instance.()
+      end
+
+      def call
+        @parameters = parameters.map do |p|
+          normalize p
+        end
+        parameters
+      end
+
+      def normalize(parameter)
+        if parameter.is_a? Symbol
+          return Parameter.new parameter, default_visibility
+        else
+          return parameter
+        end
+      end
     end
 
-    def normalize(parameter)
-      if parameter.is_a? Symbol
-        return Parameter.new parameter, default_visibility
-      else
-        return parameter
+    module InitializerOptions
+      def visibility
+        self[:visibility]
       end
     end
   end
