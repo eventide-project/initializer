@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'initializer'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.summary = 'Generates initializers and attributes'
   s.description = ' '
 
