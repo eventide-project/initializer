@@ -1,7 +1,7 @@
 require_relative 'spec_init'
 
 describe "Parameter Visibility" do
-  visibility = Initializer::Macro
+  visibility = Initializer::Visibility
   attr_name = :some_attr
 
   specify 'Reader' do
