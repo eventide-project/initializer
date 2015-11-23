@@ -11,7 +11,7 @@ module Initializer
     end
 
     def initializer_macro(*parameters)
-      Generator.generate_definitions self, parameters
+      Generator.(self, parameters)
     end
     alias :initializer :initializer_macro
   end

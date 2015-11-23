@@ -18,9 +18,14 @@ module Initializer
       instance
     end
 
-    def self.generate_definitions(target_class, parameters)
+    def self.call(target_class, parameters)
       instance = build target_class, parameters
-      instance.generate_definitions
+      instance.call
+    end
+
+    def call
+      define_attributes
+      Define.(target_class, parameters)
     end
 
     def self.separate_parameters(parameters)
@@ -32,11 +37,6 @@ module Initializer
 
     def self.options?(parameters)
       parameters.last.is_a? Hash
-    end
-
-    def generate_definitions
-      define_attributes
-      Define.(target_class, parameters)
     end
 
     def define_attributes
