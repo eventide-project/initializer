@@ -18,6 +18,10 @@ module Initializer
           reads?(attr_name) && writes?(attr_name)
         end
 
+        def no_attr?(attr_name)
+          !accessor?(attr_name)
+        end
+
         def reads?(attr_name)
           method_defined? attr_name
         end
@@ -27,10 +31,18 @@ module Initializer
         end
       end
 
-      def initialized?
-        some_attr == Attributes.some_attr &&
-          some_other_attr == Attributes.some_other_attr &&
-          another_attr == Attributes.another_attr
+      def initialized?(check_no_attr: nil)
+        check_no_attr ||= false
+
+        attrs_equal = @some_attr == Attributes.some_attr &&
+          @some_other_attr == Attributes.some_other_attr &&
+          @another_attr == Attributes.another_attr
+
+        unless check_no_attr
+          return attrs_equal
+        else
+          return attrs_equal && (@no_attr == Attributes.no_attr)
+        end
       end
     end
   end

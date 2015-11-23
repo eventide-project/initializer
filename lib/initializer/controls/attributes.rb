@@ -12,6 +12,10 @@ module Initializer
       def self.another_attr
         'another value'
       end
+
+      def self.no_attr
+        'no attr'
+      end
     end
   end
 end
