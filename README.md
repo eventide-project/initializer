@@ -4,13 +4,6 @@ The `initializer` library defines initializers that receive parameters and assig
 
 ## Usage
 
-Require initializer library and activate the macro in you're project's boot up code (e.g.: an initializer in a rails app, or some init file in a library, etc):
-
-```ruby
-require 'initializer'
-Initializer.activate
-```
-
 Use the initializer macro to define the initializer method and attributes:
 
 ```ruby
@@ -31,6 +24,15 @@ class SomeItem
     @address = address
   end
 end
+```
+
+## Setup
+
+Require initializer library and activate the macro in you're project's boot up code (e.g.: an initializer in a rails app, or some init file in a library, etc):
+
+```ruby
+require 'initializer'
+Initializer.activate
 ```
 
 It's not strictly necessary to activate the macro "globally". Include initializer specifically in the class that you want to use it in:
