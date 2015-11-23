@@ -4,12 +4,17 @@ The `initializer` library defines initializers that receive parameters and assig
 
 ## Usage
 
-Include initializer and use the initializer macro to define the initializer method and attributes.
+Require initializer library and activate the macro in you're project's boot up code (e.g.: an initializer in a rails app, or some init file in a library, etc):
+
+```ruby
+require 'initializer'
+Initializer.activate
+```
+
+Use the initializer macro to define the initializer method and attributes:
 
 ```ruby
 class SomeItem
-  include initializer
-
   initializer :name, :age, :address
 end
 ```
@@ -25,6 +30,16 @@ class SomeItem
     @age = age
     @address = address
   end
+end
+```
+
+It's not strictly necessary to activate the macro "globally". Include initializer specifically in the class that you want to use it in:
+
+```ruby
+class SomeItem
+  include initializer
+
+  initializer :name, :age, :address
 end
 ```
 
