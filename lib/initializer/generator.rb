@@ -81,11 +81,11 @@ module Initializer
       end
 
       def build_initializer_definition
-<<CTOR
-        def initialize(#{parameter_list})
-          #{variable_assignment_statements}
-        end
-CTOR
+        "
+          def initialize(#{parameter_list})
+            #{variable_assignment_statements}
+          end
+        "
       end
 
       module InitializerParameter
