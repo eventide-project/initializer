@@ -13,11 +13,11 @@ module Initializer
     end
   end
 
-  module ClassMethods
+  module Macro
     extend self
 
     def initializer_macro(*parameters)
-      Macro.generate_definitions self, parameters
+      Generator.generate_definitions self, parameters
     end
     alias :initializer :initializer_macro
 

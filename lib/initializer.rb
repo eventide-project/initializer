@@ -1,7 +1,7 @@
 require 'attribute'
 
 require 'initializer/parameter'
-require 'initializer/macro'
+require 'initializer/generator'
 require 'initializer/initializer'
 require 'initializer/activate'
 
