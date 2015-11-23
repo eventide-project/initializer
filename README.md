@@ -2,8 +2,6 @@
 
 The `initializer` library defines initializers that receive parameters and assign to attributes. It also defines the attributes, allowing the attribute visibility to be declared as well.
 
-NOTE: Dependencies are linked locally in the development environment via the [`path_gem` library](https://github.com/Sans/path-gem). Development dependencies aren't installed by RubyGems.
-
 ## Usage
 
 Include initializer and use the initializer macro to define the initializer method and attributes.
