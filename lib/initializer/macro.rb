@@ -24,7 +24,7 @@ module Initializer
     end
 
     def self.separate_parameters(parameters)
-      options = { :default => DEFAULT_VISIBILITY }
+      options = { :visibility => DEFAULT_VISIBILITY }
       options = parameters.pop if options?(parameters)
 
       return parameters, options
@@ -103,7 +103,7 @@ CTOR
 
   module InitializerOptions
     def visibility
-      self[:default]
+      self[:visibility]
     end
   end
 

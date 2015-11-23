@@ -32,7 +32,7 @@ module Initializer
       result
     end
 
-    def self.build(name, visibility, default = NO_DEFAULT_VALUE)
+    def self.build(name, visibility, default=NO_DEFAULT_VALUE)
       instance = new(name, visibility)
 
       unless default.eql?(NO_DEFAULT_VALUE)
