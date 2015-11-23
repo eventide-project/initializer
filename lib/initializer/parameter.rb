@@ -1,8 +1,8 @@
 module Initializer
   class Parameter
-    attr_reader :name    
-    attr_reader :visibility    
-    attr_reader :default    
+    attr_reader :name
+    attr_reader :visibility
+    attr_reader :default
 
     def initialize(name, visibility)
       @name = name
@@ -41,6 +41,26 @@ module Initializer
       end
 
       instance
+    end
+
+    def visibility?(visibility)
+      self.visibility == visibility
+    end
+
+    def reader?
+      visibility? :reader
+    end
+
+    def writer?
+      visibility? :writer
+    end
+
+    def accessor?
+      visibility? :accessor
+    end
+
+    def no_accessor?
+      visibility? :no_accessor
     end
 
     class StringDefaultValue
