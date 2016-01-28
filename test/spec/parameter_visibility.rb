@@ -1,29 +1,29 @@
 require_relative 'spec_init'
 
-describe "Parameter Visibility" do
+context "Parameter Visibility" do
   visibility = Initializer::Visibility
   attr_name = :some_attr
 
-  specify 'Reader' do
+  test 'Reader' do
     parameter = visibility.r attr_name
 
     assert(parameter.reader?)
   end
 
-  specify 'Writer' do
-    parameter = visibility.w name
+  test 'Writer' do
+    parameter = visibility.w attr_name
 
     assert(parameter.writer?)
   end
 
-  specify 'Accessor' do
-    parameter = visibility.a name
+  test 'Accessor' do
+    parameter = visibility.a attr_name
 
     assert(parameter.accessor?)
   end
 
-  specify 'No accessor' do
-    parameter = visibility.na name
+  test 'No accessor' do
+    parameter = visibility.na attr_name
 
     assert(parameter.no_accessor?)
   end
