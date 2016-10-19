@@ -9,7 +9,8 @@ module Initializer
           rw(:another_attr, Attributes.another_attr),
           na(:no_attr, Attributes.no_attr),
           rw(:lazy_attr, lazy('1 + 1')),
-          r(:symbol_attr, :some_symbol)
+          r(:symbol_attr, :some_symbol),
+          a(:nil_default_attr, nil)
       end
 
       def self.example
