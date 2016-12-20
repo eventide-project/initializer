@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-initializer'
-  s.version = '0.1.0.0'
+  s.version = '0.1.0.1'
   s.summary = 'Generates initializers and attributes'
   s.description = ' '
 
@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'evt-attribute'
 
-  s.add_development_dependency 'ntl-test_bench'
+  s.add_development_dependency 'test_bench'
 end
