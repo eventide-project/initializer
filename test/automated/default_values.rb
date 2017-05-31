@@ -1,4 +1,4 @@
-require_relative 'spec_init'
+require_relative 'automated_init'
 
 context "Initializer Generated with Default Values" do
   example = Initializer::Controls::DefaultValues.example

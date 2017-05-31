@@ -1,4 +1,4 @@
-require_relative 'spec_init'
+require_relative 'automated_init'
 
 context "Parameter Visibility" do
   visibility = Initializer::Visibility

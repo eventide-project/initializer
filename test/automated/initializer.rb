@@ -1,4 +1,4 @@
-require_relative 'spec_init'
+require_relative 'automated_init'
 
 context "Initializer Generated with Default Attribute Visibility" do
   example = Initializer::Controls::Initialized.example

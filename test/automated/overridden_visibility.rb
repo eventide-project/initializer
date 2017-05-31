@@ -1,4 +1,4 @@
-require_relative 'spec_init'
+require_relative 'automated_init'
 
 context "Initializer Generated with Overridden Default Visibility" do
   example = Initializer::Controls::Visibility::Override.example
