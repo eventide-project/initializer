@@ -21,10 +21,8 @@ module Initializer
       end
     end
 
-    def self.build(name, visibility, default=nil)
+    def self.build(name, visibility, default=:no_default_value)
       instance = new(name, visibility)
-
-      default ||= :no_default_value
 
       unless default == :no_default_value
         default = build_default_value(default)
@@ -40,6 +38,8 @@ module Initializer
       unless default_value.respond_to?(:code_fragment)
         if [String, Symbol].include?(result.class)
           result = StringDefaultValue.new(result.to_s)
+        elsif result.nil?
+          result = NilDefaultValue
         else
           result = Statement.new(result)
         end
@@ -74,6 +74,12 @@ module Initializer
 
       def code_fragment
         "'#{@value}'"
+      end
+    end
+
+    module NilDefaultValue
+      def self.code_fragment
+        "nil"
       end
     end
 

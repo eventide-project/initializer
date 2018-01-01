@@ -7,5 +7,6 @@ context "Initializer Generated with Default Values" do
     assert(example.initialized?(check_no_attr: true))
     assert(example.lazy_attr == 2)
     assert(example.symbol_attr == :some_symbol.to_s)
+    assert(example.nil_default_attr == nil)
   end
 end
