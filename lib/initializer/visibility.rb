@@ -2,21 +2,21 @@ module Initializer
   module Visibility
     extend self
 
-    def r(parameter_name, default=:no_default_value)
-      return Parameter.build(parameter_name, :reader, default)
+    def r(parameter_name)
+      return Parameter.build(parameter_name, :reader)
     end
 
-    def w(parameter_name, default=:no_default_value)
-      return Parameter.build(parameter_name, :writer, default)
+    def w(parameter_name)
+      return Parameter.build(parameter_name, :writer)
     end
 
-    def a(parameter_name, default=:no_default_value)
-      return Parameter.build(parameter_name, :accessor, default)
+    def a(parameter_name)
+      return Parameter.build(parameter_name, :accessor)
     end
     alias :rw :a
 
-    def na(parameter_name, default=:no_default_value)
-      return Parameter.build(parameter_name, :no_accessor, default)
+    def na(parameter_name)
+      return Parameter.build(parameter_name, :no_accessor)
     end
 
     def lazy(statement)

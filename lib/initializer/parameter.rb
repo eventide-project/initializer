@@ -2,49 +2,14 @@ module Initializer
   class Parameter
     attr_reader :name
     attr_reader :visibility
-    attr_reader :default
 
     def initialize(name, visibility)
       @name = name
       @visibility = visibility
     end
 
-    def default_value(value)
-      @default = value
-    end
-
-    def definition
-      if default
-        return "#{name}=#{default.code_fragment}"
-      else
-        return name
-      end
-    end
-
-    def self.build(name, visibility, default=:no_default_value)
-      instance = new(name, visibility)
-
-      unless default == :no_default_value
-        default = build_default_value(default)
-        instance.default_value(default)
-      end
-
-      instance
-    end
-
-    def self.build_default_value(default_value)
-      result = default_value
-
-      unless default_value.respond_to?(:code_fragment)
-        if [String, Symbol].include?(result.class)
-          result = StringDefaultValue.new(result.to_s)
-        elsif result.nil?
-          result = NilDefaultValue
-        else
-          result = Statement.new(result)
-        end
-      end
-      result
+    def self.build(name, visibility)
+      new(name, visibility)
     end
 
     def visibility?(visibility)
@@ -74,12 +39,6 @@ module Initializer
 
       def code_fragment
         "'#{@value}'"
-      end
-    end
-
-    module NilDefaultValue
-      def self.code_fragment
-        "nil"
       end
     end
 

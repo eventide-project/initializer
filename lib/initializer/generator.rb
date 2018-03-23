@@ -74,7 +74,7 @@ module Initializer
       end
 
       def parameter_list
-        parameter_names = parameters.map{ |p| p.definition }.to_a
+        parameter_names = parameters.map { |p| p.name }
         parameter_names = parameter_names.join(", ")
         parameter_names
       end
