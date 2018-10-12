@@ -2,7 +2,7 @@ module Initializer
   module Controls
     module Visibility
       class Example
-        Initializer.activate(self)
+        include Initializer
 
         include Initializer::Controls::Proof
 
@@ -15,7 +15,7 @@ module Initializer
 
       module Override
         class Example
-          Initializer.activate(self)
+          include Initializer
 
           include Initializer::Controls::Proof
 

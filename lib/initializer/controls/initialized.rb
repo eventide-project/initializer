@@ -2,7 +2,7 @@ module Initializer
   module Controls
     module Initialized
       class Example
-        Initializer.activate(self)
+        include Initializer
 
         include Initializer::Controls::Proof
 
