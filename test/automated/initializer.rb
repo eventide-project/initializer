@@ -1,7 +1,7 @@
 require_relative 'automated_init'
 
 context "Initializer Generated with Default Attribute Visibility" do
-  example = Initializer::Controls::Initialized.example
+  example = Controls::Initialized.example
 
   test "Default visibility is reader" do
     assert(example.class.reader?(:some_attr))

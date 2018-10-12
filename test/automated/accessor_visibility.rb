@@ -1,7 +1,7 @@
 require_relative 'automated_init'
 
 context "Initializer Generated with Explictest Visibility" do
-  example = Initializer::Controls::Visibility.example
+  example = Controls::Visibility.example
 
   test "Default visibility is reader" do
     assert(example.class.reader?(:some_attr))
