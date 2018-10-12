@@ -2,6 +2,8 @@ module Initializer
   module Controls
     module Initialized
       class Example
+        Initializer.activate(self)
+
         include Initializer::Controls::Proof
 
         initializer :some_attr, :some_other_attr, :another_attr

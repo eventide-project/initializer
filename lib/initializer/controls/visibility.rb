@@ -2,6 +2,8 @@ module Initializer
   module Controls
     module Visibility
       class Example
+        Initializer.activate(self)
+
         include Initializer::Controls::Proof
 
         initializer r(:some_attr), w(:some_other_attr), rw(:another_attr), na(:no_attr)
@@ -13,6 +15,8 @@ module Initializer
 
       module Override
         class Example
+          Initializer.activate(self)
+
           include Initializer::Controls::Proof
 
           initializer :some_attr, rw(:some_other_attr), :another_attr, :visibility => :writer
