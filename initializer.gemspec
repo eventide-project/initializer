@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-initializer'
-  s.version = '0.2.1.1'
+  s.version = '1.0.0.0'
   s.summary = 'Generates initializers and attributes'
   s.description = ' '
 
