@@ -39,7 +39,7 @@ It's not strictly necessary to activate the macro "globally". Include initialize
 
 ```ruby
 class SomeItem
-  include initializer
+  include Initializer
 
   initializer :name, :age, :address
 end
