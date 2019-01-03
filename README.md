@@ -12,17 +12,70 @@ class SomeItem
 end
 ```
 
-The above usage would be the equivalent of:
+The above usage is equivalent to:
 
 ```ruby
 class SomeItem
-  attr_accessor :name, :age, :address
+  attr_reader :name, :age, :address, :phone_number
 
-  def initialize(name, age, address)
+  def initialize(name, age, address, phone_number)
     @name = name
     @age = age
     @address = address
+    @phone_number = phone_number
   end
+end
+```
+
+### Visibility
+
+```ruby
+class SomeItem
+  initializer r(:name), w(:age), rw(:address), na(:phone_number)
+end
+```
+
+The above usage is equivalent to:
+
+```ruby
+class SomeItem
+  attr_reader :name
+  attr_writer :age
+  attr_accessor :address
+
+  def initialize(name, age, address, phone_number)
+    @name = name
+    @age = age
+    @address = address
+    @phone_number = phone_number
+  end
+end
+```
+
+| Visibility | Effect | Equivalent |
+| --- | --- | --- |
+| r | Read Only | attr_reader |
+| w | Write Only | attr_writer |
+| rw | Read/Write | attr_accessor |
+| na | No Accessor | (none) |
+
+Note: The `rw` visibility can also be aliased as `a`.
+
+#### Default Visibility
+
+An attribute that is not declared with an explicit visibility is given the `r` (read only) visibility by default.
+
+```ruby
+class SomeItem
+  initializer :name
+end
+```
+
+The above example is equivalent to:
+
+```ruby
+class SomeItem
+  initializer r(:name)
 end
 ```
 
