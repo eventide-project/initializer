@@ -71,7 +71,7 @@ class SomeItem
 end
 ```
 
-The above example is equivalent to:
+The above usage is equivalent to:
 
 ```ruby
 class SomeItem
