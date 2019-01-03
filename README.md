@@ -8,7 +8,7 @@ Use the initializer macro to define the initializer method and attributes:
 
 ```ruby
 class SomeItem
-  initializer :name, :age, :address
+  initializer :name, :age, :address, :phone_number
 end
 ```
 
