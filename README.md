@@ -100,4 +100,4 @@ end
 
 ## License
 
-Initializer is released under the [MIT License](https://github.com/obsidian-btc/initializer/blob/master/MIT-License.txt).
+Initializer is released under the [MIT License](https://github.com/eventide-project/initializer/blob/master/MIT-License.txt).
