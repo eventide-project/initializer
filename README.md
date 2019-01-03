@@ -98,6 +98,20 @@ class SomeItem
 end
 ```
 
+## Installation
+
+### RubyGems
+
+```bash
+gem install evt-initializer
+```
+
+### Bundler
+
+```ruby
+gem 'evt-initializer'
+```
+
 ## License
 
 Initializer is released under the [MIT License](https://github.com/eventide-project/initializer/blob/master/MIT-License.txt).
