@@ -63,7 +63,11 @@ module Initializer
       end
 
       def call
-        target_class.class_eval(initializer_definition)
+        eval "
+        class ::#{target_class}
+          #{initializer_definition}
+        end
+        "
       end
 
       def variable_assignment_statements
